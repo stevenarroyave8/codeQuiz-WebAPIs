@@ -98,3 +98,31 @@ var questions = [
     });
 }
 
+// Set timer 
+var timer = 76;
+var timeCount;
+
+// Function for timer to count down as soon as the quiz starts 
+function setupTimer() {
+    timeCount = setInterval(function () {
+        timer--;
+        var timeReset = timeElement.textContent = "Time:" + " " + timer;
+       timer = timer;
+        if (timer <= 0) {         
+            clearInterval(timeCount);
+              
+            timeElement.textContent = timeReset;
+             
+        }
+    }, 1000)
+}
+
+// EventListener starts timer and hides the quiz button 
+document.addEventListener("click", function (event) {
+    if (event.target === btnElement) {
+        wrapperElement.style.display = "none";
+        setupTimer()
+        displayQuestions();
+    }
+})
+
