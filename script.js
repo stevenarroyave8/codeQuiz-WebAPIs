@@ -1,4 +1,4 @@
-// created variables
+// Created variables
 var timeElement = document.querySelector("#time");
 var wrapperElement = document.querySelector(".wrapper");
 var btnElement = document.querySelector("#start");
@@ -15,7 +15,7 @@ var finaPageEl = document.querySelector(".final-page");
 var initialAndScore = document.querySelector("#staticEmail");
 var firstPageEl = document.querySelector(".first-page");
 
-// Create an  array of questions
+// Created an array of questions
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -45,3 +45,56 @@ var questions = [
         answer: "querySelectorAll()",
     }
 ]
+
+// Created questions to add to HTML dynamically
+ function displayQuestions() {
+    var holdQ1Title = questions[i].title
+    hElement.textContent = holdQ1Title
+    var holdq1Choice1 = questions[i].choices[0];
+    var holdq1Choice2 = questions[i].choices[1];
+    var holdq1Choice3 = questions[i].choices[2];
+    var holdq1Choice4 = questions[i].choices[3];
+
+    orderListEl.innerHTML = '';
+
+    var liTag1 = document.createElement("li");
+    liTag1.setAttribute("class", "all_li")
+    var btn = document.createElement('button');
+    btn.setAttribute("class", "all_btn")
+    btn.textContent = holdq1Choice1;
+    liTag1.appendChild(btn)
+    orderListEl.appendChild(liTag1);
+    divContEL.appendChild(orderListEl);
+
+    var liTag2 = document.createElement("li");
+    liTag2.setAttribute("class", "all_li");
+    var btn2 = document.createElement('button');
+    btn2.setAttribute("class", "all_btn")
+    btn2.textContent = holdq1Choice2;
+    liTag2.appendChild(btn2)
+    orderListEl.appendChild(liTag2)
+    divContEL.appendChild(orderListEl);
+
+    var liTag3 = document.createElement("li");
+    liTag3.setAttribute("class", "all_li")
+    var btn3 = document.createElement('button');
+    btn3.setAttribute("class", "all_btn")
+    btn3.textContent = holdq1Choice3;
+    liTag3.appendChild(btn3)
+    orderListEl.appendChild(liTag3)
+    divContEL.appendChild(orderListEl);
+
+    var liTag4 = document.createElement("li");
+    liTag4.setAttribute("class", "all_li")
+    var btn4 = document.createElement('button');
+    btn4.setAttribute("class", "all_btn");
+    btn4.textContent = holdq1Choice4;
+    liTag4.appendChild(btn4);
+    orderListEl.appendChild(liTag4);
+    divContEL.appendChild(orderListEl);
+    var allBtnEl = document.querySelectorAll(".all_btn")
+    allBtnEl.forEach(function (event) {
+        event.addEventListener("click", onclickHandler)
+    });
+}
+
